@@ -1,7 +1,7 @@
 {
-  "root/test": [
+  "rewrites": [
     {
-      "source": "/*",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
