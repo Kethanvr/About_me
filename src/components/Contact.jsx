@@ -8,6 +8,8 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import "../index.css";
 
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
 const InputField = ({ label, value, onChange, placeholder, name, type }) => (
   <label className="flex flex-col">
     <span className="text-white font-medium mb-4">{label}</span>
@@ -67,8 +69,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_r2i0by4",
-        "template_mf5x3bh",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
           to_name: "Kethan VR",
@@ -76,7 +78,7 @@ const Contact = () => {
           to_email: "kethan.ise24@cmrit.ac.in",
           message: form.message,
         },
-        "p-gXzzyvEhPaJ0XA-"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
@@ -97,8 +99,34 @@ const Contact = () => {
       });
   };
 
+  const testEmailConfiguration = () => {
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: "Test User",
+          to_name: "Kethan VR",
+          from_email: "test@example.com",
+          to_email: "kethan.ise24@cmrit.ac.in",
+          message: "This is a test message from the configuration checker",
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (response) => {
+          console.log("TEST SUCCESS!", response.status, response.text);
+          alert("Test email sent successfully!");
+        },
+        (error) => {
+          console.log("TEST FAILED...", error);
+          alert("Test email failed to send. Check console for details.");
+        }
+      );
+  };
+
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
+    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <motion.div variants={slideIn("left", "tween", 0.2, 1)} className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact Me</h3>
