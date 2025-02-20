@@ -146,7 +146,7 @@ export const experiences = [
 export const projects = [
   {
     "name": "InstaScan",
-    "description": "A web app that allows users to scan packed food products, medicines, and cosmetics to easily retrieve relevant product information. You can also dowload our Mobile (Anodriod) APK from the link given here https://median.co/share/pyonrp",
+    "description": "A web app that allows users to scan packed food products, medicines, and cosmetics to easily retrieve relevant product information. You can also dowload our Mobile (Andriod) APK from the link given here U cant click but u have to type the url manually in your browser  https://median.co/share/pyonrp",
     "tags": [
         { "name": "HTML", "color": "green-text-gradient" },
         { "name": "Tailwind CSS", "color": "blue-text-gradient" },
@@ -154,7 +154,7 @@ export const projects = [
         { "name": "Vercel Deployment", "color": "yellow-text-gradient" }
     ],
     "image": weatherpedia,
-    "source_code_link": "https://instascan-gamma.vercel.app/https://instascan-gamma.vercel.app/"
+    "source_code_link": "https://instascan-gamma.vercel.app/"
 },
 {
     "name": "CineSnap",
