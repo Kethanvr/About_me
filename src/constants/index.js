@@ -154,7 +154,7 @@ export const projects = [
         { "name": "Vercel Deployment", "color": "yellow-text-gradient" }
     ],
     "image": weatherpedia,
-    "source_code_link": "https://drive.google.com/file/d/1TIfYH1IspYR-OSOyfodTCkJLquoY6P0T/view?usp=sharing"
+    "source_code_link": "https://instascan-gamma.vercel.app/https://instascan-gamma.vercel.app/"
 },
 {
     "name": "CineSnap",
