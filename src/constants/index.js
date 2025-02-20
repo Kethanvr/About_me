@@ -146,7 +146,7 @@ export const experiences = [
 export const projects = [
   {
     "name": "InstaScan",
-    "description": "A web app that allows users to scan packed food products, medicines, and cosmetics to easily retrieve relevant product information.",
+    "description": "A web app that allows users to scan packed food products, medicines, and cosmetics to easily retrieve relevant product information. You can also dowload our Mobile (Anodriod) APK from the link given here https://median.co/share/pyonrp",
     "tags": [
         { "name": "HTML", "color": "green-text-gradient" },
         { "name": "Tailwind CSS", "color": "blue-text-gradient" },
