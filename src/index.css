@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+html, body {
+    width: 100%;
+    min-width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.Toastify__toast {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+  
+.Toastify__close-button {
+    display: none !important;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  background-color: rgb(23, 23, 23) !important; /* Ensure background doesn't change */
+  -webkit-text-fill-color: #ddd !important; /* Keep text color light */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
