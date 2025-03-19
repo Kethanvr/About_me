@@ -35,14 +35,14 @@ function SkillSection({ title, skills, color }) {
 function Skills() {
   const frontendSkills = [
     { name: "React.js", level: 90 },
-    { name: "TypeScript", level: 85 },
+    { name: "JavaScript", level: 85 },
     { name: "Tailwind CSS", level: 95 },
   ];
 
   const backendSkills = [
     { name: "Node.js", level: 88 },
-    { name: "Python", level: 82 },
-    { name: "PostgreSQL", level: 85 },
+    { name: "MongoDB", level: 85 },
+    { name: "Supabase", level: 80 },
   ];
 
   const developerTools = [
@@ -51,10 +51,12 @@ function Skills() {
     { name: "Postman", level: 88 },
   ];
 
-  const softSkills = [
-    { name: "Problem Solving", level: 90 },
-    { name: "Team Leadership", level: 95 },
-    { name: "Communication", level: 84 },
+  const cyberSecurityTools = [
+    { name: "Nmap", level: 90 },
+    { name: "Metasploit", level: 85 },
+    { name: "Hydra", level: 80 },
+    { name: "Burp Suite", level: 88 },
+    { name: "Wireshark", level: 84 },
   ];
 
   return (
@@ -86,7 +88,7 @@ function Skills() {
           <SkillSection title="Frontend Development" skills={frontendSkills} color="#3b82f6" />
           <SkillSection title="Backend Development" skills={backendSkills} color="#22c55e" />
           <SkillSection title="Developer Tools" skills={developerTools} color="#f59e0b" />
-          <SkillSection title="Soft Skills" skills={softSkills} color="#f43f5e" />
+          <SkillSection title="Cybersecurity & Ethical Hacking" skills={cyberSecurityTools} color="#f43f5e" />
         </div>
       </div>
     </div>

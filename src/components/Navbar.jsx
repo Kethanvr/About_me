@@ -76,7 +76,7 @@ function Navbar() {
             <div className="text-gray-400 hover:text-gray-300 transition-colors">
               <a href="./">
                 <span>~/</span>
-                <span className="text-gray-300">prateek</span>
+                <span className="text-gray-300">Kethan</span>
                 <span>/portfolio</span>
               </a>
             </div>

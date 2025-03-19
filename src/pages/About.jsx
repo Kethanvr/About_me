@@ -24,7 +24,7 @@ function About() {
         <div className="space-y-3">
           {/* About Me Section */}
           <p className="text-[rgb(133,132,132)] text-xs sm:text-sm leading-relaxed">
-            /** <span className="font-bold">About Me</span> - Passionate developer crafting clean code and efficient solutions!! */
+            /** <span className="font-bold">About Me</span> - Passionate about cybersecurity, ethical hacking, and building secure web solutions! */
           </p>
 
           {/* Developer Object */}
@@ -32,15 +32,15 @@ function About() {
             <span className="text-[rgb(205,112,255)]">const</span> <span className="text-[rgb(112,192,255)]">developer</span> = &#123;
           </p>
           <div className="ml-5 space-y-2 text-xs sm:text-sm">
-            <p><span className="text-[rgb(9,194,102)]">name:</span> <span className="text-[rgb(248,138,0)]">'Prateek Bisht'</span>,</p>
-            <p><span className="text-[rgb(9,194,102)]">title:</span> <span className="text-[rgb(248,138,0)]">'Full Stack Developer'</span>,</p>
-            <p><span className="text-[rgb(9,194,102)]">skills:</span> <span className="text-[rgb(248,138,0)]">[ 'JavaScript', 'React', 'Java', 'Python' ]</span>,</p>
+            <p><span className="text-[rgb(9,194,102)]">name:</span> <span className="text-[rgb(248,138,0)]">'Kethan VR'</span>,</p>
+            <p><span className="text-[rgb(9,194,102)]">title:</span> <span className="text-[rgb(248,138,0)]">'Web Developer | Ethical Hacker | Cybersecurity Enthusiast'</span>,</p>
+            <p><span className="text-[rgb(9,194,102)]">skills:</span> <span className="text-[rgb(248,138,0)]">[ 'JavaScript', 'React', 'C++', 'Python', 'Cybersecurity Tools' ]</span>,</p>
             <p><span className="text-[rgb(9,194,102)]">description:</span> <span className="text-[rgb(248,138,0)]">`</span></p>
             <p className="ml-5 text-[rgb(190,190,190)]">
-              Turning ideas into functional, elegant code. I specialize in crafting seamless web solutions with a deep passion for clean architecture, efficiency, and user experience!!
+              I specialize in cybersecurity, ethical hacking, and building secure, scalable web applications. Passionate about staying ahead in tech, solving security challenges, and delivering efficient digital solutions.
             </p>
             <p className="text-[rgb(248,138,0)]">`</p>
-            <p><span className="text-[rgb(9,194,102)]">education:</span> <span className="text-[rgb(248,138,0)]">'Computer Science Engineering, GGSIPU, 2022-2026'</span>,</p>
+            <p><span className="text-[rgb(9,194,102)]">education:</span> <span className="text-[rgb(248,138,0)]">'Information Science & Engineering, CMRIT Bangalore (2024-2028)'</span>,</p>
           </div>
           <p className="text-xs sm:text-sm">&#125;;</p>
         </div>
@@ -48,19 +48,19 @@ function About() {
         {/* Stats Section - Always Horizontal */}
         <div className="bg-[rgb(38,38,38)] rounded-lg p-5 border border-[rgb(61,61,61)] hover:border-[hsl(0,1%,31%)] transition-colors flex flex-row justify-evenly gap-8">
           <div className="flex flex-col items-center justify-center">
-            <span className="text-lg sm:text-2xl font-medium text-[rgb(85,159,255)]">9+</span>
+            <span className="text-lg sm:text-2xl font-medium text-[rgb(85,159,255)]">5+</span>
             <span className="text-xs text-gray-400 sm:hidden">Projects</span>
-            <span className="hidden sm:block text-xs sm:text-sm text-gray-400">Projects Completed</span>
+            <span className="hidden sm:block text-xs sm:text-sm text-gray-400">Major Projects Built</span>
           </div>
           <div className="flex flex-col items-center justify-center">
             <span className="text-lg sm:text-2xl font-medium text-[rgb(85,159,255)]">100%</span>
-            <span className="text-xs text-gray-400 sm:hidden">Efficiency</span>
-            <span className="hidden sm:block text-xs sm:text-sm text-gray-400">Efficient Work</span>
+            <span className="text-xs text-gray-400 sm:hidden">Focus</span>
+            <span className="hidden sm:block text-xs sm:text-sm text-gray-400">Cybersecurity & Dev</span>
           </div>
           <div className="flex flex-col items-center justify-center">
             <span className="text-lg sm:text-2xl font-medium text-[rgb(85,159,255)]">24/7</span>
             <span className="text-xs text-gray-400 sm:hidden">Active</span>
-            <span className="hidden sm:block text-xs sm:text-sm text-gray-400">Development Mode</span>
+            <span className="hidden sm:block text-xs sm:text-sm text-gray-400">Learning & Hacking</span>
           </div>
         </div>
       </div>

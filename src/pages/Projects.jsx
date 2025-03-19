@@ -77,29 +77,32 @@ function Projects() {
 
   const projects = [
     {
-      title: "Weather App",
+      title: "Personal Portfolio",
       description:
-        "A web application that provides real-time weather information for any location using the OpenWeatherMap API!!",
-      technologies: ["React", "TailwindCSS", "Chart.js", "OpenWeatherMap API"],
-      link: "https://weather-app-three-gilt-25.vercel.app/",
+        "A personal portfolio website showcasing my projects, skills, and experience.",
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
+      link: "https://github.com/Kethanvr/Personal-Portfolio",
     },
     {
-      title: "Pac-Man Game",
-      description: "A classic Pac-Man game clone developed using Java and JavaSwing Framework.",
-      technologies: ["Java", "JavaSwing", "Eclipse IDE"],
-      link: "https://github.com/prateekbisht23/pacman-game",
+      title: "E-commerce Platform",
+      description:
+        "A full-featured e-commerce platform with user authentication, product management, and payment integration.",
+      technologies: ["Node.js", "Express", "MongoDB", "React"],
+      link: "https://github.com/Kethanvr/E-commerce-Platform",
     },
     {
-      title: "Currency Converter",
-      description: "A web application that converts currencies using real-time exchange rates from an external API.",
-      technologies: ["React", "TailwindCSS", "Exchange Rate API"],
-      link: "https://currencyconvertor-git-main-prateekbisht23s-projects.vercel.app/",
+      title: "Chat Application",
+      description:
+        "A real-time chat application with support for multiple rooms and private messaging.",
+      technologies: ["Socket.io", "Node.js", "React"],
+      link: "https://github.com/Kethanvr/Chat-Application",
     },
     {
-      title: "GitHub Profile Card",
-      description: "A dynamic card that displays GitHub profile information using the GitHub API.",
-      technologies: ["JavaScript", "HTML", "CSS", "GitHub API"],
-      link: "https://prateekbisht23.github.io/GitHub-Profile-Card/",
+      title: "Task Manager API",
+      description:
+        "A RESTful API for managing tasks, with JWT authentication and MongoDB for data storage.",
+      technologies: ["Node.js", "Express", "MongoDB", "JWT"],
+      link: "https://github.com/Kethanvr/Task-Manager-API",
     },
   ];
 
