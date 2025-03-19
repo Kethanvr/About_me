@@ -29,10 +29,10 @@ function Contact() {
 
     emailjs
       .send(
-        "service_z46noqh",
-        "template_rmmjaiw",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
-        "x2mgppKXLCck1C6eh"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
         toast(
@@ -121,10 +121,11 @@ function Contact() {
             <form className="space-y-3 md:space-y-6" onSubmit={handleSubmit}>
               <div className="flex flex-col gap-3 md:flex-row md:gap-6">
                 <div className="flex-1">
-                  <label className="block text-gray-400 mb-2">
+                  <label htmlFor="name" className="block text-gray-400 mb-2">
                     const name ={" "}
                   </label>
                   <input
+                    id="name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -135,10 +136,11 @@ function Contact() {
                   />
                 </div>
                 <div className="flex-1">
-                  <label className="block text-gray-400 mb-2">
+                  <label htmlFor="email" className="block text-gray-400 mb-2">
                     const email ={" "}
                   </label>
                   <input
+                    id="email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -151,10 +153,11 @@ function Contact() {
               </div>
 
               <div>
-                <label className="block text-gray-400 mb-2">
+                <label htmlFor="subject" className="block text-gray-400 mb-2">
                   const subject ={" "}
                 </label>
                 <input
+                  id="subject"
                   type="text"
                   name="subject"
                   value={formData.subject}
@@ -166,10 +169,11 @@ function Contact() {
               </div>
 
               <div>
-                <label className="block text-gray-400 mb-2">
+                <label htmlFor="message" className="block text-gray-400 mb-2">
                   const message ={" "}
                 </label>
                 <textarea
+                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -177,7 +181,7 @@ function Contact() {
                   rows="6"
                   className="w-full bg-[rgb(23,23,23)] border border-gray-700 rounded-lg px-4 py-3 focus:border-blue-500 focus:outline-none"
                   required
-                ></textarea>
+                />
               </div>
 
               <div className="flex justify-end">
@@ -202,28 +206,32 @@ function Contact() {
                   title: "Email",
                   value: "kethan.ise24@cmrit.ac.in",
                   link: "mailto:kethanvr@gmail.com",
+                  id: "email-contact",
                 },
                 {
                   icon: <MapPin size={18} className="text-green-400" />,
                   title: "Location",
                   value: "Bangalore, Karnataka, India",
                   link: "https://maps.app.goo.gl/ASfWKxUyNsi7q6J58",
+                  id: "location-contact",
                 },
                 {
                   icon: <Terminal size={18} className="text-purple-400" />,
                   title: "X (Twitter)",
                   value: "x.com/VrKethan",
                   link: "https://x.com/VrKethan",
+                  id: "twitter-contact",
                 },
                 {
                   icon: <Lightbulb size={18} className="text-yellow-400" />,
                   title: "Fun Fact",
                   value: "I hack ethically & build awesome web apps 🚀",
                   link: "https://github.com/Kethanvr",
+                  id: "funfact-contact",
                 },
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div
-                  key={idx}
+                  key={item.id}
                   className="bg-[#262626] border border-[#474747] rounded-lg shadow-lg px-6 py-6 flex flex-col items-center text-center"
                 >
                   <div className="text-sm flex items-center gap-2">
