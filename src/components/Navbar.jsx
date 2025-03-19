@@ -1,92 +1,136 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { close, logo, menu } from '../assets';
-import { navLinks } from '../constants';
-import { styles } from '../styles';
+import { useState, useEffect } from "react";
 
-const Navbar = () => {
-  const [active, setActive] = useState('');
-  const [toggle, setToggle] = useState(false);
+function Navbar() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const scrollThreshold = 5;
 
-  const toggleResume = () => {
-    const resumeUrl = '';
-    window.open(resumeUrl);
+
+  const scrollToSection = (id) => {
+    /* const offsets = {
+      home: 0,
+      about: 80,
+      skills: 20,
+      projects: 100,
+      learningpath: 60,
+      contact: 30,
+    }; */
+    const isMobile = window.innerWidth < 768;
+
+    const offsets = {
+      home: isMobile ? 40 : 0,
+      about: isMobile ? 100 : 80,
+      skills: isMobile ? 10 : 20,
+      projects: isMobile ? 20 : 100,
+      learningpath: isMobile ? 40 : 60,
+      contact: isMobile ? 65 : 30,
+    };
+
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = offsets[id] || 100;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
-    if (toggle) {
-      setActive('');
-    }
-  }, [toggle]);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-  const renderNavLinks = (isSecondary) => (
-    <ul className={`list-none ${isSecondary ? 'flex sm:hidden' : 'hidden sm:flex'} flex-row gap-6`}>
-      {navLinks.map((link) => (
-        <li
-          key={link.id}
-          className={`${
-            active === link.title ? 'text-white' : isSecondary ? 'text-secondary' : 'text-white'
-          } hover:text-white text-[20px] font-medium cursor-pointer`}
-          onClick={() => {
-            setActive(link.title);
-            if (isSecondary) {
-              setToggle(false);
-            }
-          }}
-        >
-          <a href={`#${link.id}`}>{link.title}</a>
-        </li>
-      ))}
-      <li
-        className={`text-${
-          isSecondary ? 'secondary' : 'white'
-        } hover:text-white text-[20px] font-medium cursor-pointer`}
-      >
-        <button onClick={toggleResume}>Resume</button>
-      </li>
-    </ul>
-  );
+      if (currentScrollY > lastScrollY + scrollThreshold) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (currentScrollY / scrollHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <>
+      {/* Navbar */}
       <nav
-        className={`${styles.paddingX} w-full flex items-center py-3 fixed top-0 z-20 bg-primary`}
+        className={`fixed top-0 left-0 w-full bg-[rgb(24,24,24)] z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-          <Link
-            to="/"
-            className="flex items-center gap-2"
-            onClick={() => {
-              setActive('');
-              window.scrollTo(0, 0);
-            }}
-          >
-<img src={logo} alt="logo" className="w-9 h-9 object-contain rounded-full" />
-<p className="text-white text-[20px] font-bold cursor-pointer flex">
-              Kethan&nbsp;
-              <span className="sm:block hidden">VR</span>
-            </p>
-          </Link>
-          {renderNavLinks(false)}
-          <div className="sm:hidden flex flex-1 justify-end items-center">
-            <img
-              src={toggle ? close : menu}
-              alt="menu"
-              className="w-[28px] h-[18px] object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
-            />
-            <div
-              className={`p-4 black-gradient absolute top-14 right-0 mx-2 my-2 min-w-[120px] z-10 rounded-xl foggy-glass ${
-                toggle ? 'flex' : 'hidden'
-              }`}
-            >
-              {renderNavLinks(true)}
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center h-14">
+            {/* Logo */}
+            <div className="text-gray-400 hover:text-gray-300 transition-colors">
+              <a href="./">
+                <span>~/</span>
+                <span className="text-gray-300">Kethan</span>
+                <span>/portfolio</span>
+              </a>
             </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex gap-6">
+              {["Home", "About", "Skills", "Projects", "learningPath", "Contact"].map((id) => (
+                <span
+                  key={id}
+                  className="text-gray-400 hover:text-gray-200 hover:lowercase transition-all-700 cursor-pointer capitalize"
+                  onClick={() => scrollToSection(id.toLowerCase())}
+                >
+                  {id}
+                </span>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-gray-400 focus:outline-none font-extralight text-2xl transition-transform duration-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? "✖" : "☰"}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-[rgb(24,24,24)] py-4 px-6">
+            {["Home", "About", "Skills", "Projects", "LearningPath", "Contact"].map((id) => (
+              <span
+                key={id}
+                className="block py-2 px-3 text-gray-400 hover:text-gray-200 hover:lowercase font-extralight transition-all cursor-pointer"
+                onClick={() => scrollToSection(id.toLowerCase())}
+              >
+                {id}
+              </span>
+            ))}
+          </div>
+        )}
       </nav>
+
+      {/* Scroll Progress Bar */}
+      <div
+        className={`fixed left-0 w-full z-50 bg-[rgb(41,41,41)] transition-all duration-300 ${isVisible ? "top-[56px]" : "top-0"}`}
+      >
+        <div
+          className="h-[1px] bg-[rgba(85,159,255,0.9)] transition-all duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        ></div>
+      </div>
     </>
   );
-};
+}
 
 export default Navbar;
