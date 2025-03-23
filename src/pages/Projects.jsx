@@ -95,7 +95,7 @@ function Projects() {
         "OpenFoodFacts API",
         "Machine Learning",
       ],
-      link: "https://instascan-gamma.vercel.app/",
+      link: "https://instascan.kethanvr.me/",
     },
     {
       title: "Nmap Automation Tool",
@@ -118,7 +118,7 @@ function Projects() {
         "React Router",
         "Axios",
       ],
-      link: "https://cine-snap-react.vercel.app/",
+      link: "https://cinesnap.kethanvr.me/",
     },
     {
       title: "Wordlist Generator - Smart Password List Creator",
