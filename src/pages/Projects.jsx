@@ -72,7 +72,7 @@ function ProjectCard({
           className="text-[rgb(85,158,254)] hover:underline text-sm"
         >
           View Project →
-        </a>
+        </a> 
         <FaGithub className="text-gray-400 hover:text-white cursor-pointer" />
       </div>
     </div>
