@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Mail, Coffee } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ResumePopUp from "../components/ResumePopUp";
+import ProjectPopUp from "../components/ProjectPopUp";
 import resumePDF from "../assets/Kethan_VR_Resume_Pro.pdf";
 
 function Home() {
@@ -107,17 +108,17 @@ function Home() {
           <div className="flex justify-between text-sm text-gray-500 mt-2">
             <p className="italic">2024 - 2028</p>
             <a
-              href={resumePDF}
-              download="Kethan_VR_Resume_Pro.pdf"
-              onClick={(e) => {
-                if (window.innerWidth >= 768) {
-                  e.preventDefault();
-                  setPopupContent(true);
-                }
-              }}
-              className="hover:text-gray-300 cursor-pointer"
+              href="https://drive.google.com/drive/folders/1995vuIv_9uYTM_5BkfVxmCgC4rUL1mLm"
+              // target="_blank"
+              // onClick={(e) => {
+              //   if (window.innerWidth >= 768) {
+              //     e.preventDefault();
+              //     setPopupContent("https://drive.google.com/drive/folders/1995vuIv_9uYTM_5BkfVxmCgC4rUL1mLm");
+              //   }
+              // }}
+              // className="hover:text-gray-300 cursor-pointer"
             >
-              Resume
+              Certificates
             </a>
           </div>
         </div>
@@ -171,9 +172,12 @@ function Home() {
         </div>
       </div>
 
-      {/* Resume Popup */}
+      {/* Popups */}
       <AnimatePresence>
-        {popupContent && <ResumePopUp onClose={() => setPopupContent(false)} />}
+        {popupContent && typeof popupContent === 'boolean' && 
+          <ResumePopUp onClose={() => setPopupContent(null)} />}
+        {popupContent && typeof popupContent === 'string' && 
+          <ProjectPopUp content={popupContent} onClose={() => setPopupContent(null)} />}
       </AnimatePresence>
     </motion.div>
   );
