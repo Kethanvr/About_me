@@ -134,7 +134,7 @@ function Home() {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/kethan-vr-433ab532b/"
+              href="https://www.linkedin.com/in/kethanvr/"
               target="_blank"
               className="text-gray-400 hover:text-white transition-colors"
             >
