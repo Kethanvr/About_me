@@ -72,7 +72,7 @@ function ProjectCard({
           className="text-[rgb(85,158,254)] hover:underline text-sm"
         >
           View Project →
-        </a> 
+        </a>
         <FaGithub className="text-gray-400 hover:text-white cursor-pointer" />
       </div>
     </div>
@@ -83,6 +83,20 @@ function Projects() {
   const [popupContent, setPopupContent] = useState(null);
 
   const projects = [
+    {
+      title: "MediScan - AI Health Assistant",
+      description:
+        "MediScan is a mobile-first web app that allows users to scan medicine and get detailed information such as usage, side effects, and dosage. The app also features a health-related AI chatbot for user interaction. Built with a focus on security, MediScan stores user history and provides personalized health insights. 🚀",
+      technologies: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Node.js",
+        "Supabase",
+        "Gemini API",
+      ],
+      link: "https://mediscan.kethanvr.me/", // If you have a live link, provide it here
+    },
     {
       title: "InstaScan - AI Label Scanner",
       description:
@@ -98,41 +112,31 @@ function Projects() {
       link: "https://instascan.kethanvr.me/",
     },
     {
-      title: "Nmap Automation Tool",
+      title: "InstaSearch - Image Search App",
       description:
-        "This is a CLI-based Nmap Automation Tool designed for ethical hackers and penetration testers. It simplifies network reconnaissance, offering Router Scanning, Connected Devices Scanning, and Web Server Scanning with the option to use a dummy bot network for privacy. 🔴 Warning: This tool is meant for authorized security testing only.",
-      technologies: ["Python", "Nmap", "Networking", "Cybersecurity"],
-      link: "https://github.com/Kethanvr/Nmap",
+        "InstaSearch allows users to search for high-quality images from Unsplash based on keywords. The app integrates the Unsplash API, providing a seamless search experience with options to load more results and an intuitive user interface. 💡",
+      technologies: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "Tailwind CSS",
+        "Unsplash API",
+      ],
+      link: "https://instasearch.kethanvr.me/", // If you have a live link, provide it here
     },
-
     {
       title: "CineSnap - Movie Hub & CineShot",
       description:
         "CineSnap is a user-friendly platform for movie enthusiasts, offering detailed insights into movies, cast, and crew. The standout CineShot feature lets users effortlessly download high-quality images like wallpapers, logos, and posters, elevating your cinematic experience! 🚀",
       technologies: [
-        "React 18",
-        "TypeScript",
-        "Vite",
-        "React Query",
-        "Material-UI",
-        "React Router",
-        "Axios",
+         "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "TMDB API",
       ],
       link: "https://cinesnap.kethanvr.me/",
-    },
-    {
-      title: "Wordlist Generator - Smart Password List Creator",
-      description:
-        "This tool intelligently generates custom wordlists tailored to a specific target by asking relevant questions. It uses permutations, common passwords, and service-based logic to create highly effective wordlists for penetration testing. ⚠ WARNING: This tool is intended ONLY for authorized security testing. Unauthorized use is illegal!",
-      technologies: [
-        "Python",
-        "Linux",
-        "Kali Linux",
-        "Parrot OS",
-        "Brute Force",
-        "Hydra",
-      ],
-      link: "https://github.com/Kethanvr/WordList",
     },
   ];
 
