@@ -44,9 +44,9 @@ function Home() {
         </h1>
 
         <p className="text-lg md:text-xl text-gray-400 max-w-lg mx-auto md:mx-0">
-  I'm a Web Developer & Tech enthusiast passionate about building scalable, real-world applications and exploring AI-driven solutions!
-</p>
-
+          I'm a Web Developer & Tech enthusiast passionate about building
+          scalable, real-world applications and exploring AI-driven solutions!
+        </p>
 
         <div className="flex gap-4 justify-center md:justify-start">
           <a
@@ -66,8 +66,8 @@ function Home() {
         <div className="hidden md:block font-mono text-gray-600">
           <div className="text-sm">class Developer extends Human {"{"}</div>
           <div className="pl-4 text-sm">
-            const skills = ['JavaScript', 'React','Node.js', 'C++','Nextjs', 'Python',
-            'Cybersecurity'];
+            const skills = ['JavaScript', 'React','Node.js', 'C++','Nextjs',
+            'Python', 'Cybersecurity'];
             <br />
             const passion = 'Building exceptional digital experiences';
           </div>
@@ -174,10 +174,15 @@ function Home() {
 
       {/* Popups */}
       <AnimatePresence>
-        {popupContent && typeof popupContent === 'boolean' && 
-          <ResumePopUp onClose={() => setPopupContent(null)} />}
-        {popupContent && typeof popupContent === 'string' && 
-          <ProjectPopUp content={popupContent} onClose={() => setPopupContent(null)} />}
+        {popupContent && typeof popupContent === "boolean" && (
+          <ResumePopUp onClose={() => setPopupContent(null)} />
+        )}
+        {popupContent && typeof popupContent === "string" && (
+          <ProjectPopUp
+            content={popupContent}
+            onClose={() => setPopupContent(null)}
+          />
+        )}
       </AnimatePresence>
     </motion.div>
   );
