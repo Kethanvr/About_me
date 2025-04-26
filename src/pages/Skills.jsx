@@ -34,13 +34,16 @@ function SkillSection({ title, skills, color }) {
 
 function Skills() {
   const frontendSkills = [
-    { name: "React.js", level: 90 },
-    { name: "JavaScript", level: 85 },
-    { name: "Tailwind CSS", level: 95 },
+    { name: "HTML & CSS", level: 95 },
+    { name: "JavaScript (ES6+)", level: 84 },
+    { name: "React.js", level: 82 },
+    { name: "Tailwind CSS", level: 81 },
+    { name: "Next.js (Learning)", level: 65 },
   ];
 
   const backendSkills = [
     { name: "Node.js", level: 88 },
+    { name: "Express.js", level: 85 },
     { name: "MongoDB", level: 85 },
     { name: "Supabase", level: 80 },
   ];
@@ -48,16 +51,21 @@ function Skills() {
   const developerTools = [
     { name: "Git & GitHub", level: 90 },
     { name: "VS Code", level: 95 },
-    { name: "Postman", level: 88 },
+    { name: "Postman", level: 84 },
+    { name: "Figma", level: 80 },
+    { name: "Canva", level: 85 },
   ];
 
-  const cyberSecurityTools = [
-    { name: "Nmap", level: 90 },
-    { name: "Metasploit", level: 85 },
-    { name: "Hydra", level: 80 },
-    { name: "Burp Suite", level: 88 },
-    { name: "Wireshark", level: 84 },
-  ];
+  const aiMlSkills = [
+  { name: "Prompt Engineering", level: 93 },
+  { name: "AI Tools (Gemini, OpenAI, Claude)", level: 93 },
+  { name: "Machine Learning Basics", level: 70 },
+  { name: "Using Gemini API for AI apps", level: 90 },
+  { name: "Building AI Chatbots (basic)", level: 85 },
+  { name: "Data Handling (basic JSON)", level: 85 },
+];
+
+ 
 
   return (
     <div className="w-[100vw] my-20 py-6 sm:py-8 px-8 sm:px-15">
@@ -88,7 +96,8 @@ function Skills() {
           <SkillSection title="Frontend Development" skills={frontendSkills} color="#3b82f6" />
           <SkillSection title="Backend Development" skills={backendSkills} color="#22c55e" />
           <SkillSection title="Developer Tools" skills={developerTools} color="#f59e0b" />
-          <SkillSection title="Cybersecurity & Ethical Hacking" skills={cyberSecurityTools} color="#f43f5e" />
+          <SkillSection title="AI & Machine Learning" skills={aiMlSkills} color="#8b5cf6" />
+          
         </div>
       </div>
     </div>
