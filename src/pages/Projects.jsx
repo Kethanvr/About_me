@@ -112,6 +112,20 @@ function Projects() {
       link: "https://instascan.kethanvr.me/",
     },
     {
+      title: "Shūn.AI - Revolutionizing the Future of Intelligence.",
+      description:
+      "Shūn.AI is not just another AI model—it's a revolution in artificial intelligence, pushing the boundaries of what machines can understand and achieve. Shūn.AI will reshape how we interact with technology. The project is currently in its early stages",
+      //  "Shūn.AI is not just another AI model—it's a revolution in artificial intelligence, pushing the boundaries of what machines can understand and achieve. With a focus on advanced problem-solving and innovative solutions, Shūn.AI will reshape how we interact with technology. The project is currently in its early stages, with only a landing page available, built using Next.js, TypeScript, and an accessibility-first UI powered by ShadCN components. The goal is to build an AI that breaks conventions, eventually tailored to the Indian context. 🚀",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "ShadCN",
+        "Accessibility UI",
+        "AI Model (Future Plan)",
+      ],
+      link: "https://ai.kethanvr.me", // Replace with live link if available
+    },
+    {
       title: "InstaSearch - Image Search App",
       description:
         "InstaSearch allows users to search for high-quality images from Unsplash based on keywords. The app integrates the Unsplash API, providing a seamless search experience with options to load more results and an intuitive user interface. 💡",
@@ -129,15 +143,10 @@ function Projects() {
       title: "CineSnap - Movie Hub & CineShot",
       description:
         "CineSnap is a user-friendly platform for movie enthusiasts, offering detailed insights into movies, cast, and crew. The standout CineShot feature lets users effortlessly download high-quality images like wallpapers, logos, and posters, elevating your cinematic experience! 🚀",
-      technologies: [
-         "HTML",
-        "CSS",
-        "JavaScript",
-        "Node.js",
-        "TMDB API",
-      ],
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js", "TMDB API"],
       link: "https://cinesnap.kethanvr.me/",
     },
+    
   ];
 
   return (
