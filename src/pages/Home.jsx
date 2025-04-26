@@ -66,8 +66,8 @@ function Home() {
         <div className="hidden md:block font-mono text-gray-600">
           <div className="text-sm">class Developer extends Human {"{"}</div>
           <div className="pl-4 text-sm">
-            const skills = ['JavaScript', 'React', 'C++', 'Python',
-            'Cybersecurity','c','Node.js'];
+            const skills = ['JavaScript', 'React','Node.js', 'C++','Nextjs', 'Python',
+            'Cybersecurity'];
             <br />
             const passion = 'Building exceptional digital experiences';
           </div>
@@ -162,7 +162,7 @@ function Home() {
               <FaInstagram size={24} />
             </a>
             <a
-              href="https://buymeacoffee.com/kethanvr"
+              href="/"
               target="_blank"
               className="text-gray-400 hover:text-white transition-colors"
             >
