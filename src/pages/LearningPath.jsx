@@ -52,11 +52,89 @@ function LearningPathCard({ title, source, period, description, topics }) {
 function LearningPath() {
   const learningSteps = [
     {
+      title: "Full-Stack Web Development",
+      source: "Udemy - Dr. Angela Yu",
+      period: "Advancing",
+      description:
+        "Mastering full-stack web development with a focus on scalable, responsive web apps using React, Node.js, and cloud platforms for hosting and scaling.",
+      topics: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Cloud Hosting (AWS, Azure, Firebase)",
+        "Scalable App Architecture",
+        "Performance Optimization",
+      ],
+    },
+    {
+      title: "Backend Development & Scalability",
+      source: "YouTube - Code with Chai",
+      period: "Advancing",
+      description:
+        "Delving deeper into backend development with a focus on scalable architecture, API optimization, and performance improvements for handling large-scale apps.",
+      topics: [
+        "Node.js",
+        "Express.js",
+        "JWT Authentication",
+        "API Design & Optimization",
+        "Database Scalability (MongoDB, PostgreSQL)",
+        "Microservices",
+      ],
+    },
+
+    {
+      title: "AI & AI Model APIs",
+      source: "YouTube - Various Channels & Internet Resources",
+      period: "Learning",
+      description:
+        "Exploring the use of AI APIs and models, understanding how to integrate AI functionalities into apps, and learning how to work with various AI platforms.",
+      topics: [
+        "AI APIs (GPT, Gemini, OpenAI, etc.)",
+        "Natural Language Processing (NLP)",
+        "Machine Learning Model Integration",
+        "Building AI Chatbots",
+        "AI for Development",
+        "AI in Web Development",
+      ],
+    },
+    {
+      title: "Running Local LLMs & Fine-Tuning Models",
+      source: "YouTube - Various Tutorials & Articles",
+      period: "Learning",
+      description:
+        "Learning how to run local Large Language Models (LLMs) on my machine, fine-tuning them, and utilizing them for specific tasks like chatbots and automating tasks.",
+      topics: [
+        "Running Local LLMs",
+        "Model Fine-Tuning",
+        "Training Custom Models",
+        "Working with Hugging Face",
+        "Running AI Models Locally (Docker, TensorFlow, PyTorch)",
+      ],
+    },
+    {
+      title: "AI for Development & Automation",
+      source: "YouTube - Various Channels & Internet Resources",
+      period: "Advancing",
+      description:
+        "Delving into using AI for automating development tasks, improving app functionality, and optimizing code with AI-driven tools and services.",
+      topics: [
+        "Automating Development with AI",
+        "AI-Assisted Coding (GitHub Copilot)",
+        "AI in Web and App Development",
+        "Optimizing Code with AI",
+        "Integrating AI with CI/CD Pipelines",
+        "AI for Code Review and Testing",
+      ],
+    },
+    {
       title: "Cybersecurity & Ethical Hacking",
       source: "YouTube - Various Channels",
       period: "Learning",
       description:
-        "Exploring penetration testing, network security, and ethical hacking using tools like Nmap, Hydra, and Metasploit.",
+        "Exploring penetration testing, network security, and ethical hacking using tools like Nmap, Hydra, and Metasploit, with a focus on securing web apps.",
       topics: [
         "Kali Linux",
         "Parrot OS",
@@ -64,23 +142,9 @@ function LearningPath() {
         "Hydra",
         "Metasploit",
         "Bug Bounty",
+        "Web App Security",
+        "OWASP Top 10",
       ],
-    },
-    {
-      title: "Backend Development",
-      source: "YouTube - Code with Chai",
-      period: "Advancing",
-      description:
-        "Dived deeper into backend development, learning Express.js, authentication, API design, and database optimization.",
-      topics: ["Node.js", "Express.js", "jwt", "Authentication", "MongoDB", ],
-    },
-    {
-      title: "Web Development",
-      source: "Udemy - Dr. Angela Yu",
-      period: "Advancing",
-      description:
-        "Learned full-stack web development, covering HTML, CSS, JavaScript, React, Node.js, and databases.",
-      topics: ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
     },
   ];
 
