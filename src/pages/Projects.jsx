@@ -146,7 +146,17 @@ function Projects() {
       technologies: ["HTML", "CSS", "JavaScript", "Node.js", "TMDB API"],
       link: "https://cinesnap.kethanvr.me/",
     },
-    
+    {
+  "title": "Petty - eCommerce Platform for Pet Food",
+  "description": "Petty is an award-winning eCommerce platform for pet food, created as a 1st Semester Mini Project at CMRIT Bangalore. Dedicated to pets like dogs, cats, fish, and more, it features filters, multi-image selection, and shopping options. Built with HTML, CSS, and JavaScript, it bagged 1st Prize in a project competition. 🏆",
+  "technologies": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "link": "https://petty.kethanvr.me/"
+},
+
   ];
 
   return (
