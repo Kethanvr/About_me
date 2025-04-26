@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Mail, Coffee } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,6 +9,53 @@ import resumePDF from "../assets/Kethan_VR_Resume_Pro.pdf";
 function Home() {
   const [isToggled, setIsToggled] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
+
+  // Typing effect states
+  const firstText = "Kethan VR";
+  // Change the text below to update the second auto-typed string
+  const secondText = "Namaskara, World!";
+  // Change the text below to update the auto-typed paragraph
+  const firstPara = "I'm a Web Developer & Tech enthusiast passionate about building scalable, real-world applications and exploring AI-driven solutions!";
+  const [displayedText, setDisplayedText] = useState("");
+  const [isFirst, setIsFirst] = useState(true); // true: firstText, false: secondText
+  const [displayedPara, setDisplayedPara] = useState("");
+
+  // Alternate typing effect for firstText and secondText
+  useEffect(() => {
+    let interval;
+    let timeout;
+    let text = isFirst ? firstText : secondText;
+    let i = 0;
+    setDisplayedText("");
+    interval = setInterval(() => {
+      setDisplayedText(text.slice(0, i + 1));
+      i++;
+      if (i === text.length) {
+        clearInterval(interval);
+        timeout = setTimeout(() => {
+          setIsFirst((prev) => !prev);
+        }, 4000); // 2 seconds
+      }
+    }, 100);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, [isFirst]);
+
+  // Type firstPara on mount (only once)
+  useEffect(() => {
+    let interval;
+    let i = 0;
+    interval = setInterval(() => {
+      setDisplayedPara(firstPara.slice(0, i + 1));
+      i++;
+      if (i === firstPara.length) {
+        clearInterval(interval);
+      }
+    }, 40);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <motion.div
@@ -28,24 +75,17 @@ function Home() {
 
         <h1 className="text-3xl justify-self-left md:text-6xl font-bold flex gap-6 select-none">
           <span className="text-blue-500">&lt;</span>
-          <span
-            className="hover:cursor-pointer"
-            onClick={() => setIsToggled(!isToggled)}
-          >
-            {isToggled ? (
-              <span className="text-gray-400 transition-opacity duration-300">
-                Namaskara, World!
-              </span>
-            ) : (
-              "Kethan VR"
-            )}
+          <span className="hover:cursor-pointer">
+            <span className="text-gray-400 transition-opacity duration-300">
+              {displayedText}
+              <span className="animate-pulse">|</span>
+            </span>
           </span>
           <span className="text-blue-500">/&gt;</span>
         </h1>
-
         <p className="text-lg md:text-xl text-gray-400 max-w-lg mx-auto md:mx-0">
-          I'm a Web Developer & Tech enthusiast passionate about building
-          scalable, real-world applications and exploring AI-driven solutions!
+          {displayedPara}
+          <span className="animate-pulse">|</span>
         </p>
 
         <div className="flex gap-4 justify-center md:justify-start">
