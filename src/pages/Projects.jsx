@@ -95,7 +95,7 @@ function Projects() {
         "Supabase",
         "Gemini API",
       ],
-      link: "https://mediscan.kethanvr.me/", // If you have a live link, provide it here
+      link: "https://downloadmediscan.kethanvr.me", // If you have a live link, provide it here
     },
     {
       title: "InstaScan - AI Label Scanner",
