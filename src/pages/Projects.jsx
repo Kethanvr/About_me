@@ -1,6 +1,7 @@
-import { FaGithub, FaRegFolder } from "react-icons/fa";
+import { FaGithub, FaRegFolder, FaImages } from "react-icons/fa";
 import { AnimatePresence } from "framer-motion";
 import ProjectPopUp from "../components/ProjectPopUp";
+import MediaGallery from "../components/MediaGallery";
 import React, { useState } from "react";
 
 function ProjectCard({
@@ -10,6 +11,8 @@ function ProjectCard({
   number,
   link,
   openPopup,
+  openGallery,
+  images,
 }) {
   return (
     <div
@@ -57,22 +60,33 @@ function ProjectCard({
         })}
       </div>
 
-      {/* Footer - View Project Link */}
+      {/* Footer - View Project Link & Media Button */}
       <div className="flex justify-between items-center mt-auto">
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => {
-            if (window.innerWidth >= 768) {
-              e.preventDefault();
-              openPopup(link);
-            }
-          }}
-          className="text-[rgb(85,158,254)] hover:underline text-sm"
-        >
-          View Project →
-        </a>
+        <div className="flex gap-4">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (window.innerWidth >= 768) {
+                e.preventDefault();
+                openPopup(link);
+              }
+            }}
+            className="text-[rgb(85,158,254)] hover:underline text-sm"
+          >
+            View Project →
+          </a>
+          {images && images.length > 0 && (
+            <button
+              onClick={() => openGallery(images)}
+              className="text-[rgb(85,158,254)] hover:underline text-sm flex items-center gap-1"
+            >
+              <FaImages className="text-sm" />
+              Media
+            </button>
+          )}
+        </div>
         <FaGithub className="text-gray-400 hover:text-white cursor-pointer" />
       </div>
     </div>
@@ -81,6 +95,7 @@ function ProjectCard({
 
 function Projects() {
   const [popupContent, setPopupContent] = useState(null);
+  const [galleryImages, setGalleryImages] = useState(null);
 
   const projects = [
     {
@@ -95,7 +110,29 @@ function Projects() {
         "Supabase",
         "Gemini API",
       ],
-      link: "https://mediscan.kethanvr.me/", // If you have a live link, provide it here
+      link: "https://mediscan.kethanvr.me/",
+      images: [
+        "/assets/Mediscan.png",
+        "/assets/Home-gold.png",
+        "/assets/Gold-plan.png",
+        "/assets/Accunt-gold.png",
+        "/assets/Histroy-gold.png",
+        "/assets/chat.png",
+        "/assets/whtsnew.png",
+        "/assets/promotion.png",
+        "/assets/scan.png",
+        "/assets/features.png",
+        "/assets/Holiday offer.png",
+        "/assets/DOnt google.png",
+        "/assets/doctor.png",
+        "/assets/Know what you take.png",
+        "/assets/Your helath in your hands.png",
+        "/assets/why us.png",
+        "/assets/superhero.png",
+        "/assets/Doc.png",
+        "/assets/medicine records.png",
+        "/assets/DOC2.png",
+      ],
     },
     {
       title: "InstaScan - AI Label Scanner",
@@ -114,7 +151,7 @@ function Projects() {
     {
       title: "Shūn.AI - Revolutionizing the Future of Intelligence.",
       description:
-      "Shūn.AI is not just another AI model—it's a revolution in artificial intelligence, pushing the boundaries of what machines can understand and achieve. Shūn.AI will reshape how we interact with technology. The project is currently in its early stages",
+        "Shūn.AI is not just another AI model—it's a revolution in artificial intelligence, pushing the boundaries of what machines can understand and achieve. Shūn.AI will reshape how we interact with technology. The project is currently in its early stages",
       //  "Shūn.AI is not just another AI model—it's a revolution in artificial intelligence, pushing the boundaries of what machines can understand and achieve. With a focus on advanced problem-solving and innovative solutions, Shūn.AI will reshape how we interact with technology. The project is currently in its early stages, with only a landing page available, built using Next.js, TypeScript, and an accessibility-first UI powered by ShadCN components. The goal is to build an AI that breaks conventions, eventually tailored to the Indian context. 🚀",
       technologies: [
         "Next.js",
@@ -147,16 +184,12 @@ function Projects() {
       link: "https://cinesnap.kethanvr.me/",
     },
     {
-  "title": "Petty - eCommerce Platform for Pet Food",
-  "description": "Petty is an award-winning eCommerce platform for pet food, created as a 1st Semester Mini Project at CMRIT Bangalore. Dedicated to pets like dogs, cats, fish, and more, it features filters, multi-image selection, and shopping options. Built with HTML, CSS, and JavaScript, it bagged 1st Prize in a project competition. 🏆",
-  "technologies": [
-    "HTML",
-    "CSS",
-    "JavaScript"
-  ],
-  "link": "https://petty.kethanvr.me/"
-},
-
+      title: "Petty - eCommerce Platform for Pet Food",
+      description:
+        "Petty is an award-winning eCommerce platform for pet food, created as a 1st Semester Mini Project at CMRIT Bangalore. Dedicated to pets like dogs, cats, fish, and more, it features filters, multi-image selection, and shopping options. Built with HTML, CSS, and JavaScript, it bagged 1st Prize in a project competition. 🏆",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      link: "https://petty.kethanvr.me/",
+    },
   ];
 
   return (
@@ -181,6 +214,7 @@ function Projects() {
             {...project}
             number={index + 1}
             openPopup={setPopupContent}
+            openGallery={setGalleryImages}
           />
         ))}
       </div>
@@ -190,6 +224,12 @@ function Projects() {
           <ProjectPopUp
             content={popupContent}
             onClose={() => setPopupContent(null)}
+          />
+        )}
+        {galleryImages && (
+          <MediaGallery
+            images={galleryImages}
+            onClose={() => setGalleryImages(null)}
           />
         )}
       </AnimatePresence>
