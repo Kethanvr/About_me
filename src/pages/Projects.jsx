@@ -63,6 +63,15 @@ function ProjectCard({
       {/* Footer - View Project Link & Media Button */}
       <div className="flex justify-between items-center mt-auto">
         <div className="flex gap-4">
+        {images && images.length > 0 && (
+            <button
+              onClick={() => openGallery(images)}
+              className="text-[rgb(85,158,254)] hover:underline text-sm flex items-center gap-1"
+            >
+              <FaImages className="text-sm" />
+              Media
+            </button>
+          )}
           <a
             href={link}
             target="_blank"
@@ -77,15 +86,7 @@ function ProjectCard({
           >
             View Project →
           </a>
-          {images && images.length > 0 && (
-            <button
-              onClick={() => openGallery(images)}
-              className="text-[rgb(85,158,254)] hover:underline text-sm flex items-center gap-1"
-            >
-              <FaImages className="text-sm" />
-              Media
-            </button>
-          )}
+         
         </div>
         <FaGithub className="text-gray-400 hover:text-white cursor-pointer" />
       </div>
@@ -113,25 +114,37 @@ function Projects() {
       link: "https://mediscan.kethanvr.me/",
       images: [
         "/assets/Mediscan.png",
-        "/assets/Home-gold.png",
-        "/assets/Gold-plan.png",
-        "/assets/Accunt-gold.png",
-        "/assets/Histroy-gold.png",
-        "/assets/chat.png",
-        "/assets/whtsnew.png",
-        "/assets/promotion.png",
-        "/assets/scan.png",
-        "/assets/features.png",
-        "/assets/Holiday offer.png",
-        "/assets/DOnt google.png",
-        "/assets/doctor.png",
-        "/assets/Know what you take.png",
-        "/assets/Your helath in your hands.png",
-        "/assets/why us.png",
-        "/assets/superhero.png",
-        "/assets/Doc.png",
-        "/assets/medicine records.png",
-        "/assets/DOC2.png",
+        "/assets/Mediscan-holiday-offer.png",
+        "/assets/Mediscan-Dont-google-it-Mediscan-it.png",
+        "/assets/Mediscan-for-healther-tomorrow.png",
+        "/assets/Mediscan-Know-what-you-take.png",
+        "/assets/Mediscan-vs -Google.png",
+        "/assets/Mediscan-your-helath-in-your-hands.png",
+        "/assets/Mediscan-why-Meidscan.png",
+        "/assets/Mediscan-scan-to-save.png",
+        "/assets/Mediscan-Doc-AI.png",
+        "/assets/Mediscan-medicine-records.png",
+        "/assets/Mediscan-DOC-Chat-with-AI.png",
+        "/assets/Mediscan-Better-than-google.png",
+        "/assets/Mediscan-Shield-Yourself-withknowledge.png",
+        "/assets/Mediscan-From-village-to-city-One-health-app.png",
+        "/assets/Meidscan-for-elders.png",
+        "/assets/Meidscan-vs-Mysterypill.png",
+        "/assets/Mediscan-Scan-detect.png",
+        "/assets/Mediscan-Say-no-to-google.png",
+        "/assets/Mediscan-no-more-medicine-mumbo-jumbo.png",
+        "/assets/Meidscan-ask-doc.png",
+        "/assets/Mediscan-your-helath-one-tap-away.png",
+        "/assets/Mediscan-smarter-than-google.png","/assets/Mediscan-homepage.png",
+        "/assets/Mediscan-Gold-Update.png",
+        "/assets/Mediscan-homepage-gold.png",
+        "/assets/Mediscan-Gold.png",
+        "/assets/Mediscan-History-gold.png",
+        "/assets/Mediscan-chat.png",
+        "/assets/Mediscan-updates.png",
+        "/assets/Mediscan-reedem-code.png",
+        "/assets/Mediscan-scan-results.png",
+        "/assets/Mediscan-features.png",
       ],
     },
     {
