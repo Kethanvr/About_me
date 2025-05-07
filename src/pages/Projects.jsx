@@ -63,7 +63,7 @@ function ProjectCard({
       {/* Footer - View Project Link & Media Button */}
       <div className="flex justify-between items-center mt-auto">
         <div className="flex gap-4">
-        {images && images.length > 0 && (
+          {images && images.length > 0 && (
             <button
               onClick={() => openGallery(images)}
               className="text-[rgb(85,158,254)] hover:underline text-sm flex items-center gap-1"
@@ -86,7 +86,6 @@ function ProjectCard({
           >
             View Project →
           </a>
-         
         </div>
         <FaGithub className="text-gray-400 hover:text-white cursor-pointer" />
       </div>
@@ -135,7 +134,8 @@ function Projects() {
         "/assets/Mediscan-no-more-medicine-mumbo-jumbo.png",
         "/assets/Meidscan-ask-doc.png",
         "/assets/Mediscan-your-helath-one-tap-away.png",
-        "/assets/Mediscan-smarter-than-google.png","/assets/Mediscan-homepage.png",
+        "/assets/Mediscan-smarter-than-google.png",
+        "/assets/Mediscan-homepage.png",
         "/assets/Mediscan-Gold-Update.png",
         "/assets/Mediscan-homepage-gold.png",
         "/assets/Mediscan-Gold.png",
@@ -173,7 +173,7 @@ function Projects() {
         "Accessibility UI",
         "AI Model (Future Plan)",
       ],
-      link: "https://ai.kethanvr.me", // Replace with live link if available
+      link: "https://ai.kethanvr.me",
     },
     {
       title: "InstaSearch - Image Search App",
@@ -187,7 +187,7 @@ function Projects() {
         "Tailwind CSS",
         "Unsplash API",
       ],
-      link: "https://instasearch.kethanvr.me/", // If you have a live link, provide it here
+      link: "https://instasearch.kethanvr.me/",
     },
     {
       title: "CineSnap - Movie Hub & CineShot",
