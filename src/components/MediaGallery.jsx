@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaChevronLeft,
@@ -13,27 +13,6 @@ const MediaGallery = ({ images, onClose }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [imageDimensions, setImageDimensions] = useState({});
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [loadedImages, setLoadedImages] = useState({});
-  const [preloadedImages, setPreloadedImages] = useState({});
-
-  // Preload next and previous images
-  const preloadAdjacentImages = useCallback(
-    (index) => {
-      const nextIndex = (index + 1) % images.length;
-      const prevIndex = (index - 1 + images.length) % images.length;
-
-      [nextIndex, prevIndex].forEach((idx) => {
-        if (!preloadedImages[idx]) {
-          const img = new Image();
-          img.src = images[idx];
-          img.onload = () => {
-            setPreloadedImages((prev) => ({ ...prev, [idx]: true }));
-          };
-        }
-      });
-    },
-    [images, preloadedImages]
-  );
 
   useEffect(() => {
     document.documentElement.style.overflow = "hidden";
@@ -69,11 +48,6 @@ const MediaGallery = ({ images, onClose }) => {
     });
   }, [images]);
 
-  // Preload adjacent images when current index changes
-  useEffect(() => {
-    preloadAdjacentImages(currentIndex);
-  }, [currentIndex, preloadAdjacentImages]);
-
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
@@ -86,6 +60,7 @@ const MediaGallery = ({ images, onClose }) => {
     e.stopPropagation();
     const link = document.createElement("a");
     link.href = imageUrl;
+    // Extract filename from the URL
     const filename = imageUrl.split("/").pop();
     link.download = filename;
     document.body.appendChild(link);
@@ -96,48 +71,6 @@ const MediaGallery = ({ images, onClose }) => {
   const getImageName = (imageUrl) => {
     const filename = imageUrl.split("/").pop();
     return filename.replace(/\.[^/.]+$/, "").replace(/-/g, " ");
-  };
-
-  const ProgressiveImage = ({ src, alt, className, onClick }) => {
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [isError, setIsError] = useState(false);
-
-    useEffect(() => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        setIsLoaded(true);
-        setLoadedImages((prev) => ({ ...prev, [src]: true }));
-      };
-      img.onerror = () => setIsError(true);
-    }, [src]);
-
-    if (isError) {
-      return (
-        <div
-          className={`${className} bg-gray-800 flex items-center justify-center`}
-        >
-          <span className="text-gray-400">Failed to load image</span>
-        </div>
-      );
-    }
-
-    return (
-      <div className={`${className} relative overflow-hidden`}>
-        {!isLoaded && (
-          <div className="absolute inset-0 bg-gray-800 animate-pulse" />
-        )}
-        <img
-          src={src}
-          alt={alt}
-          className={`${className} transition-opacity duration-300 ${
-            isLoaded ? "opacity-100" : "opacity-0"
-          }`}
-          loading="lazy"
-          onClick={onClick}
-        />
-      </div>
-    );
   };
 
   const FullscreenView = () => {
@@ -195,7 +128,7 @@ const MediaGallery = ({ images, onClose }) => {
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.3 }}
               >
-                <ProgressiveImage
+                <img
                   src={images[currentIndex]}
                   alt={currentImageName}
                   className={`${
@@ -242,7 +175,7 @@ const MediaGallery = ({ images, onClose }) => {
                       : "border-transparent hover:border-gray-600"
                   }`}
                 >
-                  <ProgressiveImage
+                  <img
                     src={image}
                     alt={getImageName(image)}
                     className="w-full h-full object-cover"
@@ -319,7 +252,7 @@ const MediaGallery = ({ images, onClose }) => {
                       aspectRatio: dimensions.aspectRatio || 1,
                     }}
                   >
-                    <ProgressiveImage
+                    <img
                       src={image}
                       alt={imageName}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
