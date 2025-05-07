@@ -15,7 +15,8 @@ function Home() {
   // Change the text below to update the second auto-typed string
   const secondText = "Namaskara, World!";
   // Change the text below to update the auto-typed paragraph
-  const firstPara = "I'm a Web Developer & Tech enthusiast passionate about building scalable, real-world applications and exploring AI-driven solutions!";
+  const firstPara =
+    "I'm a Web Developer & Tech enthusiast passionate about building scalable, real-world applications and exploring AI-driven solutions!";
   const [displayedText, setDisplayedText] = useState("");
   const [isFirst, setIsFirst] = useState(true); // true: firstText, false: secondText
   const [displayedPara, setDisplayedPara] = useState("");
@@ -129,8 +130,8 @@ function Home() {
         {/* Profile Picture */}
         <div className="bg-[rgb(24,24,24)] rounded-full w-32 md:w-40 h-32 md:h-40 p-1 hover:p-1.5 border border-gray-800 hover:border-gray-600 transition-all duration-300 shadow-lg">
           <img
-            src="./profile-pic.png"
-            alt="Profile"
+            src="./kethan-vr.png"
+            alt="Kethan VR"
             className="rounded-full w-full h-full object-cover"
           />
         </div>
