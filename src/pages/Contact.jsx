@@ -27,11 +27,20 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Build the params expected by your EmailJS template so that the
+    // "from" name and reply-to address are correctly populated in the email
+    const templateParams = {
+      from_name: formData.name, // sender name (appears as From name)
+      reply_to: formData.email, // sets Reply-To header so you can reply directly
+      subject: formData.subject, // email subject
+      message: formData.message, // main message
+    };
+
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formData,
+        templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
